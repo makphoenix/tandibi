@@ -47,6 +47,12 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  # rspec-rails is a testing framework for Rails 5+
+  gem 'rspec-rails', '~> 6.1'
+
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.2'
 end
 
 group :development do
@@ -58,5 +64,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Annotates Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema
+  gem 'annotate', '~> 3.2'
 end
 
