@@ -70,5 +70,8 @@ group :development do
 
   # Annotates Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema
   gem 'annotate', '~> 3.2'
+
+  gem 'solargraph', '~> 0.50.0'
+  gem 'solargraph-rails', '~> 1.1'
 end
 
