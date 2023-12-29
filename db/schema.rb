@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_25_074951) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_25_081928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
@@ -53,6 +53,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_074951) do
     t.index ["postable_type", "postable_id"], name: "index_posts_on_postable"
   end
 
+  create_table "sights", force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.string "activity_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_sights_on_place_id"
+  end
+
   create_table "statuses", force: :cascade do |t|
     t.string "text", null: false
     t.datetime "created_at", null: false
@@ -76,4 +84,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_074951) do
   add_foreign_key "pictures", "posts"
   add_foreign_key "posts", "posts", column: "thread_id"
   add_foreign_key "posts", "users"
+  add_foreign_key "sights", "places"
 end
