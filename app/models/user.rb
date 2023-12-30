@@ -20,4 +20,6 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :username, uniqueness: true
     validates :username, presence: true
+    has_many :bonds, class_name: "bond"
+    has_many :friends, through: :bonds
 end

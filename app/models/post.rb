@@ -21,4 +21,7 @@
 #
 class Post < ApplicationRecord
   belongs_to :postable, polymorphic: true
+  belongs_to :user, class_name: "User", foreign_key: "user_id"
+  belongs_to :thread, class_name: "Post", foreign_key: "thread_id", optional: true
+  has_many :pictures, class_name: "picture"
 end
